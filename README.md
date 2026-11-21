@@ -18,17 +18,7 @@
 
 默认行为不会直接修改 PHP 配置。执行正式加固需要明确确认；加固程序会备份 `php.ini` 和 `php-fpm.conf`、测试 FPM 配置、平滑重载并进行验证，失败时尝试恢复。
 
-## 2. 发布安装脚本
-
-将 `install.sh` 上传到 GitHub 仓库根目录：
-
-`https://github.com/719729765/PHP-Security-Hardener`
-
-提交到 `main` 分支。确认这个地址可以打开：
-
-`https://raw.githubusercontent.com/719729765/PHP-Security-Hardener/main/install.sh`
-
-## 3. 一键安装命令
+## 2. 一键安装命令
 
 SSH 使用 root 登录后复制执行：
 
@@ -38,7 +28,7 @@ curl -fsSL -o /root/install-php-hardener.sh https://raw.githubusercontent.com/71
 
 安装器首先扫描并显示结果。只有输入大写 `YES` 才执行正式加固；按回车或输入其他内容都只完成安装和扫描。
 
-## 4. 常用参数
+## 3. 常用参数
 
 ```bash
 # 安装并只读扫描，不询问、不修改 PHP 配置
@@ -60,14 +50,14 @@ bash /root/install-php-hardener.sh --rollback
 bash /root/install-php-hardener.sh --version v0.1.0
 ```
 
-## 5. 安装位置与备份
+## 4. 安装位置与备份
 
 - 程序：`/opt/php74-security-hardener/php74_hardener.py`
 - 安装版本：`/opt/php74-security-hardener/VERSION`
 - 配置备份：`/root/php74-hardener-backups/`
 - 临时下载目录：`/var/tmp/php-security-hardener-installer/`（每次运行结束后清理本次临时目录）
 
-## 6. 当前适配范围
+## 5. 当前适配范围
 
 当前 v0.1.0 加固程序是针对 `/www/server/php/74` 的宝塔 PHP 7.4 专用版本，不会自动修改其他 PHP 版本，也不会自动升级 PHP 或操作系统。对于不符合目录布局的服务器，脚本会停止并提示，不会猜测配置路径。
 
